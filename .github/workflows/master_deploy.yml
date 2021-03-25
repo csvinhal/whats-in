@@ -16,14 +16,16 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
             - name: Install Packages
-              run: npm install
+            - run: yarn
+              run: yarn test
             - name: Deploy to GH Pages
               env:
                   GITHUB_TOKEN: ${{secrets.SECRET_TOKEN}}
                   API_KEY: ${{secrets.API_KEY}}
+                  BASE_URL: ${{secrets.BASE_URL}}
                   MONGODB_URI: ${{secrets.MONGODB_URI}}
               run: |
                   git config --global user.email "cristiano.vinhal10@gmail.com"
                   git config --global user.name "csvinhal"
                   git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git
-                  npm run deploy
+                  yarn run deploy
