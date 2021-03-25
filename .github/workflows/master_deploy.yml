@@ -12,12 +12,12 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - name: Setup node
-            - uses: actions/setup-node@v2
+              uses: actions/setup-node@v2
               with:
                   node-version: ${{ matrix.node-version }}
             - name: Install Packages
-            - run: yarn install
-            - run: yarn test
+              run: yarn install
+              run: yarn test
             - name: Deploy to GH Pages
               env:
                   GITHUB_TOKEN: ${{secrets.SECRET_TOKEN}}
