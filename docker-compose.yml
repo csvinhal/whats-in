@@ -1,19 +1,19 @@
 version: '3.7'
 
 services:
-  mongo:
-    container_name: mongo
-    image: mongo
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
-    volumes:
-      - ./db:/data/db
-    networks:
-      - mongo-compose-network
-    ports:
-      - '27017:27017'
+    mongo:
+        container_name: mongo
+        image: mongo
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: root
+        volumes:
+            - ./db:/data/db
+        networks:
+            - mongo-compose-network
+        ports:
+            - '27017:27017'
 
-networks: 
-  mongo-compose-network:
-    driver: bridge
+networks:
+    mongo-compose-network:
+        driver: bridge
