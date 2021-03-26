@@ -1,4 +1,3 @@
-import axios from 'axios'
 import {
     GetServerSideProps,
     GetServerSidePropsContext,
@@ -6,6 +5,7 @@ import {
 } from 'next'
 import Image from 'next/image'
 import { useCallback, useMemo, useState } from 'react'
+import { getMovieDetail, updateMovieFavorite } from '../../config/moviesApi'
 import FavoriteButton from '../../components/FavoriteButton/FavoriteButton'
 import Grid from '../../components/Grid/Grid'
 import GridItem from '../../components/GridItem/GridItem'
@@ -14,9 +14,7 @@ import Layout from '../../components/Layout/Layout'
 import SummaryCredit from '../../components/SummaryCredit/SummaryCredit'
 import SummaryLabels from '../../components/SummaryLabels/SummaryLabels'
 import Typography from '../../components/Typography/Typography'
-import { updateMovieFavorite } from '../../config/moviesApi'
 import { MovieDetails } from '../../models/movieDetails'
-
 export const MovieDetail = ({
     movie,
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
@@ -185,9 +183,7 @@ export const getServerSideProps: GetServerSideProps<{
     movie: MovieDetails
 }> = async (context: GetServerSidePropsContext) => {
     const { params } = context
-    const res = await axios.get<MovieDetails>(
-        `/api/movie-detail/${params.slug}`,
-    )
+    const res = await getMovieDetail(params.slug as string)
 
     if (!res.data) {
         return {
