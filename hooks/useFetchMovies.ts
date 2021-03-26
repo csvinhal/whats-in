@@ -1,6 +1,6 @@
 import { AxiosError } from 'axios'
 import { useCallback, useEffect, useState } from 'react'
-import { getMovies } from '../api/moviesApi'
+import { getMovies } from '../config/moviesApi'
 import { ErrorResponse } from '../models/error'
 import { FetchMoviesState } from '../models/fetchMoviesState'
 

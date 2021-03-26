@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks'
 import { AxiosResponse } from 'axios'
-import * as moviesApi from '../api/moviesApi'
+import * as moviesApi from '../config/moviesApi'
 import { useFetchMovies } from '../hooks/useFetchMovies'
 import moviesJson from './pages/__mocks__/movies.json'
 

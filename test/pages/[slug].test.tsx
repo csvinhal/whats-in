@@ -1,7 +1,7 @@
 import { fireEvent, waitFor } from '@testing-library/dom'
 import { AxiosResponse } from 'axios'
 import { toMatchDiffSnapshot } from 'snapshot-diff'
-import * as moviesApi from '../../api/moviesApi'
+import * as moviesApi from '../../config/moviesApi'
 import { MovieDetail } from '../../pages/detail/[slug]'
 import { render } from '../testUtils'
 import movie from './__mocks__/movie-detail.json'

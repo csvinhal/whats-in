@@ -1,6 +1,6 @@
 import { fireEvent, waitFor } from '@testing-library/dom'
 import { AxiosResponse } from 'axios'
-import * as moviesApi from '../../api/moviesApi'
+import * as moviesApi from '../../config/moviesApi'
 import { MovieResponse } from '../../models/movie'
 import { Home } from '../../pages/index'
 import { render } from '../testUtils'

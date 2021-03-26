@@ -1,8 +1,6 @@
 module.exports = {
     env: {
-        baseUrl:
-            process.env.VERCEL_URL ||
-            process.env.BASE_URL,
+        baseUrl: process.env.BASE_URL,
     },
     images: {
         domains: ['m.media-amazon.com'],

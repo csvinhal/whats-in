@@ -5,7 +5,7 @@ import {
 } from 'next'
 import Image from 'next/image'
 import { useCallback, useMemo, useState } from 'react'
-import { getMovieDetail, updateMovieFavorite } from '../../api/moviesApi'
+import { getMovieDetail, updateMovieFavorite } from '../../config/moviesApi'
 import FavoriteButton from '../../components/FavoriteButton/FavoriteButton'
 import Grid from '../../components/Grid/Grid'
 import GridItem from '../../components/GridItem/GridItem'
