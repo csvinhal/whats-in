@@ -196,6 +196,7 @@ export const getServerSideProps: GetServerSideProps<{
             props: { movie: res.data },
         }
     } catch (e) {
+        console.log(e)
         return {
             props: {
                 movie: {
