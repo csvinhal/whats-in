@@ -1,8 +1,6 @@
 module.exports = {
-    publicRuntimeConfig: {
-        backendUrl:
-            process.env.BASE_URL ||
-            `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+    env: {
+        backendUrl: process.env.BASE_URL || `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
     },
     images: {
         domains: ['m.media-amazon.com'],

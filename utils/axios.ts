@@ -1,10 +1,11 @@
 import axios from 'axios'
-import getConfig from 'next/config'
-
-const { publicRuntimeConfig } = getConfig()
 
 const axiosInstance = axios.create({
-    baseURL: publicRuntimeConfig.backendUrl,
+    baseURL: process.env.BASE_URL,
 })
 
-export default axiosInstance
+const backendAxiosInstance = axios.create({
+    baseURL: process.env.backendUrl,
+})
+
+export { axiosInstance, backendAxiosInstance }
