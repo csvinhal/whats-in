@@ -5,7 +5,6 @@ import {
 } from 'next'
 import Image from 'next/image'
 import { useCallback, useMemo, useState } from 'react'
-import { getMovieDetail, updateMovieFavorite } from '../../config/moviesApi'
 import FavoriteButton from '../../components/FavoriteButton/FavoriteButton'
 import Grid from '../../components/Grid/Grid'
 import GridItem from '../../components/GridItem/GridItem'
@@ -14,6 +13,7 @@ import Layout from '../../components/Layout/Layout'
 import SummaryCredit from '../../components/SummaryCredit/SummaryCredit'
 import SummaryLabels from '../../components/SummaryLabels/SummaryLabels'
 import Typography from '../../components/Typography/Typography'
+import { getMovieDetail, updateMovieFavorite } from '../../config/moviesApi'
 import { MovieDetails } from '../../models/movieDetails'
 export const MovieDetail = ({
     movie,
@@ -182,17 +182,46 @@ export const MovieDetail = ({
 export const getServerSideProps: GetServerSideProps<{
     movie: MovieDetails
 }> = async (context: GetServerSidePropsContext) => {
-    const { params } = context
-    const res = await getMovieDetail(params.slug as string)
+    try {
+        const { params } = context
+        const res = await getMovieDetail(params.slug as string)
 
-    if (!res.data) {
-        return {
-            notFound: true,
+        if (!res.data) {
+            return {
+                notFound: true,
+            }
         }
-    }
 
-    return {
-        props: { movie: res.data },
+        return {
+            props: { movie: res.data },
+        }
+    } catch (e) {
+        return {
+            props: {
+                movie: {
+                    title: 'What Happens in Vegas',
+                    imdb: 'tt1033643',
+                    year: '2008',
+                    poster:
+                        '/MV5BYzQyYjE3YjYtNjJkNi00MWY0LWJhNDctZDRmOTY5ZGJiNDI5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg',
+                    rated: 'PG-13',
+                    runtime: '99 min',
+                    plot:
+                        "Set in Sin City, story revolves around two people who discover they've gotten married following a night of debauchery, with one of them winning a huge jackpot after playing the other's quarter. Unhappy pair try to undermine each other and get their hands on the money -- falling in love along the way.",
+                    actors: [
+                        'Cameron Diaz',
+                        ' Ashton Kutcher',
+                        ' Rob Corddry',
+                        ' Lake Bell',
+                    ],
+                    genre: ['Comedy', ' Romance'],
+                    director: ['Tom Vaughan'],
+                    imdbRate: '6.1/10',
+                    rottenRate: '26%',
+                    favorite: false,
+                },
+            },
+        }
     }
 }
 export default MovieDetail
