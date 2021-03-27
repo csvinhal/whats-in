@@ -1,10 +1,30 @@
 import axios from 'axios'
+import Cors from 'cors'
 import { NextApiRequest, NextApiResponse } from 'next'
 import Favorite from '../../../models/favorite'
 import { DetailResponse, MovieDetails } from '../../../models/movieDetails'
 import dbConnect from '../../../utils/mongo'
 
+// Initializing the cors middleware
+const cors = Cors({
+    methods: ['GET', 'HEAD', 'POST'],
+})
+
+function runMiddleware(req, res, fn) {
+    return new Promise((resolve, reject) => {
+        fn(req, res, result => {
+            if (result instanceof Error) {
+                return reject(result)
+            }
+
+            return resolve(result)
+        })
+    })
+}
+
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+    await runMiddleware(req, res, cors)
+
     const { method } = req
 
     switch (method) {

@@ -33,6 +33,7 @@
         "@testing-library/react-hooks": "^5.1.0",
         "axios": "^0.21.1",
         "classnames": "^2.2.6",
+        "cors": "^2.8.5",
         "eslint-plugin-import": "^2.22.1",
         "mongoose": "^5.12.1",
         "next": "latest",
