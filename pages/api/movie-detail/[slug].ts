@@ -22,7 +22,7 @@ const handleGet = async (
     const { slug } = req.query
 
     const response = await axios.get<DetailResponse>(
-        `http://www.omdbapi.com/?i=${slug}&apikey=${process.env.API_KEY}&plot=full`,
+        `${process.env.omdbApi}/?i=${slug}&apikey=${process.env.API_KEY}&plot=full`,
     )
 
     if (hasError(response.data.Response)) {

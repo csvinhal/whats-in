@@ -14,7 +14,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         try {
             const { title } = req.query
             const response = await axios.get<OmdbMovieResponse>(
-                `${process.env.OMDB_API}/?s=${title}&type=movie&apikey=${process.env.API_KEY}`,
+                `${process.env.omdbApi}/?s=${title}&type=movie&apikey=${process.env.API_KEY}`,
             )
 
             if (hasError(response.data.Response)) {

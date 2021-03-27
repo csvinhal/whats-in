@@ -4,6 +4,10 @@ A simple project made with Nexjs, Typescript, Styled-jsx and Mongo to consume th
 
 The main features are movie listing and detailing. Also possibility to add or remove a movie as a favorite.
 
+## Demo
+
+You can see a demo here: [What's in App](https://whats-in.vercel.app/)
+
 ## Setup
 
 #### Requirements to use this project:
