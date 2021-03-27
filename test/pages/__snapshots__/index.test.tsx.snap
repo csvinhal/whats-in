@@ -44,7 +44,7 @@ exports[`Home page should matches snapshot 1`] = `
       class="jsx-2234572585"
     >
       <div
-        class="jsx-1504584403 grid"
+        class="jsx-3428674614 grid"
       >
         <div
           class="jsx-2249794958 grid-item grid-item-xs-true"
@@ -120,7 +120,7 @@ exports[`Home page should matches snapshot 1`] = `
         </div>
       </div>
       <div
-        class="jsx-1504584403 grid"
+        class="jsx-3428674614 grid"
       >
         <div
           class="jsx-2249794958 grid-item grid-item-xs-true"
