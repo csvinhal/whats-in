@@ -3,6 +3,7 @@ module.exports = {
         backendUrl:
             process.env.BASE_URL ||
             `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+        mongoUri: process.env.MONGODB_URI,
     },
     images: {
         domains: ['m.media-amazon.com'],
