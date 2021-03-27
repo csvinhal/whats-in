@@ -13,9 +13,7 @@
         "test": "jest",
         "test-all": "yarn lint && yarn type-check && yarn test",
         "storybook": "start-storybook -p 6006 -s ./public",
-        "build-storybook": "build-storybook",
-        "predeploy": "yarn run build",
-        "deploy": "gh-pages -d build"
+        "build-storybook": "build-storybook"
     },
     "husky": {
         "hooks": {
